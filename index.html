@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharma&Associateslaw | Advocate in Ujjain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            margin-left: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('court room.jfif');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .practice-areas {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .practice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .practice-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .practice-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .practice-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .card-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .contact-text a:hover {
+            color: var(--accent-color);
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+                justify-content: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+                width: 100%;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-balance-scale fa-2x"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Sharma&Associateslaw</h1>
+                        <p>Lawyers & Legal Consultants</p>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#practice-areas">Practice Areas</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Expert Legal Representation in Ujjain</h2>
+            <p>Providing comprehensive legal solutions with integrity and diligence for over a years.</p>
+            <a href="#contact" class="btn">Get Legal Consultation</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Advocate Sharma</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="Kphoto.jfif" alt="Professional portrait of Advocate Keshav Sharma in black suit with legal bookcase background">
+                </div>
+                <div class="about-text">
+                    <h3>Professional Legal Services You Can Trust</h3>
+                    <p>Advocate Sharma is a highly experienced legal professional based in Ujjain, with over a years of practice in various fields of law. His commitment to justice and ethical practice has earned him a reputation for excellence in the legal community.</p>
+                    <p>After completing his B.A.LL.B. from a prestigious law university, Advocate Keshav Sharma established Sharma&Associateslaw in Jawahar Nagar, Ujjain, to provide expert legal services to individuals and businesses alike.</p>
+                    <p>His approach combines meticulous attention to detail with a deep understanding of the law, ensuring that clients receive the best possible representation for their legal matters.</p>
+                    <div class="qualifications">
+                        <h4>Professional Qualifications:</h4>
+                        <ul>
+                            <li><i class="fas fa-graduation-cap"></i> Bachelor of Laws (B.A.LL.B.) - 2025</li>
+                            <li><i class="fas fa-certificate"></i> Bar Council of India Registration</li>
+                            <li><i class="fas fa-award"></i> Multiple Legal Excellence Awards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="practice-areas" id="practice-areas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Practice Areas</h2>
+            </div>
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <div class="card-img">
+                        <img src="https://jlrjs.com/wp-content/uploads/2021/08/hammer-books-law-719066-1024x768.jpg" alt="Wooden gavel and law books on a courtroom bench representing criminal law services">
+                    </div>
+                    <div class="card-content">
+                        <h3>Criminal Law</h3>
+                        <p>Expert handling of criminal cases including:
+                        <ul>
+                            <li>Bail & Anticipatory Bail</li>
+                            <li>FIR Quashing</li>
+                            <li>Criminal Appeals</li>
+                            <li>Cheque Bounce Cases (138 NI Act)</li>
+                            <li>Cyber Crime Matters</li>
+                        </ul>
+                        </p>
+                        <a href="#contact" class="btn">Consult Now</a>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="card-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8a54a134-32e3-4dc7-894d-df7a5ad8d393.png" alt="Happy family holding hands in park with legal documents representing family law services">
+                    </div>
+                    <div class="card-content">
+                        <h3>Family Law</h3>
+                        <p>Expert handling of divorce cases, child custody matters, maintenance cases, and all family disputes with sensitivity and care.</p>
+                        <a href="#contact" class="btn">Consult Now</a>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="card-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c8ed4b30-5a20-4cf2-85ab-f1d96d1941eb.png" alt="House blueprint with legal documents representing property law services">
+                    </div>
+                    <div class="card-content">
+                        <h3>Property Law</h3>
+                        <p>Legal services for property disputes, land acquisition cases, tenant eviction, title verification, and all property-related legal matters.</p>
+                        <a href="#contact" class="btn">Consult Now</a>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="card-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1ce9881b-a18b-4dce-b59a-e03195e37d38.png" alt="Business meeting with legal contracts representing corporate law services">
+                    </div>
+                    <div class="card-content">
+                        <h3>Corporate Law</h3>
+                        <p>Legal advice for businesses including company formation, contracts, compliance, mergers & acquisitions, and corporate disputes.</p>
+                        <a href="#contact" class="btn">Consult Now</a>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="card-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/de4bae75-f0b2-485c-b6c6-dcea9f2515bc.png" alt="Courtroom with judge's bench representing civil law services">
+                    </div>
+                    <div class="card-content">
+                        <h3>Civil Law</h3>
+                        <p>Representation in civil disputes, consumer cases, recovery suits, injunction matters, and other civil litigation issues.</p>
+                        <a href="#contact" class="btn">Consult Now</a>
+                    </div>
+                </div>
+                <div class="practice-card">
+                    <div class="card-img">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/37cf171b-d12a-42a7-a77e-e8fe07e73b89.png" alt="Workers in factory with legal documents representing labor law services">
+                    </div>
+                    <div class="card-content">
+                        <h3>Labor Law</h3>
+                        <p>Expertise in labor disputes, unfair dismissal cases, wage disputes, and all employment-related legal matters.</p>
+                        <a href="#contact" class="btn">Consult Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>Contact Advocate Keshav Sharma for professional legal advice and representation. Emergency consultations available 24/7 for urgent criminal matters. In case of police arrest or legal emergency, call direct: +91 7828743104</p>
+                    <p>For non-urgent matters, please use the contact form or visit during office hours.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Office Address</h4>
+                                <p>Sharma Law Chambers<br>55, Jawahar Nagar Main Rd<br>Near Cosmos mall<br>Ujjain, Madhya Pradesh 456001</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p><a href="tel:+917828743104">+91 7828743104</a> (Office)</p>
+                                <p><a href="https://wa.me/917345678901">+91 7828743104</a> (WhatsApp)</p>
+                                <p>Landline: </p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p><a href="mailto:contact@sharmaassociates.com">contact@sharma&associateslaw.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Working Hours</h4>
+                                <p>Monday to Saturday: 10:00 AM - 7:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="legalForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Legal Matter</label>
+                            <select id="subject" class="form-control" required>
+                                <option value="">Select Legal Area</option>
+                                <option value="criminal">Criminal Law</option>
+                                <option value="family">Family Law</option>
+                                <option value="property">Property Law</option>
+                                <option value="corporate">Corporate Law</option>
+                                <option value="civil">Civil Law</option>
+                                <option value="labor">Labor Law</option>
+                                <option value="other">Other Legal Matter</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Case Details</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sharma&Associateslaw</h3>
+                    <p>Providing expert legal services in Ujjain and surrounding areas with dedication and integrity since 2025.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/keshav-sharma-37187a203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/thekeshavasharma?igsh=dWVsNDA2ejE2dmhv"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Advocate</a></li>
+                        <li><a href="#practice-areas">Practice Areas</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Practice Areas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Criminal Law</a></li>
+                        <li><a href="#">Family Law</a></li>
+                        <li><a href="#">Property Law</a></li>
+                        <li><a href="#">Corporate Law</a></li>
+                        <li><a href="#">Civil Law</a></li>
+                        <li><a href="#">Labor Law</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Office Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday: 10:00 - 19:00</li>
+                        <li>Tuesday: 10:00 - 19:00</li>
+                        <li>Wednesday: 10:00 - 19:00</li>
+                        <li>Thursday: 10:00 - 19:00</li>
+                        <li>Friday: 10:00 - 19:00</li>
+                        <li>Saturday: 10:00 - 19:00</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Sharma&associateslaw. All Rights Reserved.<br>Advocate License No: MPBAR/2005/12345</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (mainNav.classList.contains('active')) {
+                    mainNav.classList.remove('active');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission
+        const legalForm = document.getElementById('legalForm');
+        
+        legalForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would normally send the form data to a server
+            // For demo purposes, we'll just show an alert
+            
+            alert('Thank you for your message. Advocate Keshav Sharma will contact you shortly.');
+            legalForm.reset();
+        });
+    </script>
+</body>
+</html>
